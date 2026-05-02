@@ -1,3 +1,6 @@
+## Fix
+Fixed a crash caused by running the mod through **Sinytra Connector**.
+
 # clientcommands
 Adds several useful client-side commands to Minecraft
 
