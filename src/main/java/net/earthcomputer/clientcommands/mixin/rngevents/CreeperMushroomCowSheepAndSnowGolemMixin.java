@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin({Creeper.class, MushroomCow.class, Sheep.class, SnowGolem.class})
 public class CreeperMushroomCowSheepAndSnowGolemMixin {
 
-    @Inject(method = "mobInteract", at = @At(value = "FIELD", target = "Lnet/minecraft/world/level/Level;isClientSide:Z"))
+    @Inject(method = "mobInteract", at = @At("HEAD"))
     public void onInteract(Player player, InteractionHand hand, CallbackInfoReturnable<Boolean> ci) {
         PlayerRandCracker.onItemDamage(1, player, player.getItemInHand(hand));
     }

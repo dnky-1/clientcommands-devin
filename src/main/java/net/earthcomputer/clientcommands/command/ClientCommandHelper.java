@@ -25,11 +25,17 @@ public class ClientCommandHelper {
     }
 
     public static <T> T getFlag(FabricClientCommandSource source, Flag<T> flag) {
-        return ((IClientSuggestionsProvider) source).clientcommands_getFlag(flag);
+        if (source instanceof IClientSuggestionsProvider provider) {
+            return provider.clientcommands_getFlag(flag);
+        }
+        return flag.getDefaultValue();
     }
 
     public static <T> FabricClientCommandSource withFlag(FabricClientCommandSource source, Flag<T> flag, T value) {
-        return (FabricClientCommandSource) ((IClientSuggestionsProvider) source).clientcommands_withFlag(flag, value);
+        if (source instanceof IClientSuggestionsProvider provider) {
+            return (FabricClientCommandSource) provider.clientcommands_withFlag(flag, value);
+        }
+        return source;
     }
 
     public static void sendError(Component error) {
