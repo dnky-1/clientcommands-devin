@@ -1,5 +1,5 @@
 ## Fix
-Fixed a crash caused by running the mod through **Sinytra Connector** 
+Fixed a crash caused by running the mod through **Sinytra Connector**  
 Now it should hopefully work :)
 
 # clientcommands
