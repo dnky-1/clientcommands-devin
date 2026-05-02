@@ -79,9 +79,9 @@ public abstract class LivingEntityMixin extends Entity {
         }
     }
 
-    @Inject(method = "baseTick", at = @At(value = "FIELD", target = "Lnet/minecraft/world/level/Level;isClientSide:Z", ordinal = 2))
+    @Inject(method = "baseTick", at = @At("HEAD"))
     public void testFrostWalker(CallbackInfo ci) {
-        if (!isThePlayer()) {
+        if (!isThePlayer() || !level().isClientSide) {
             return;
         }
 
